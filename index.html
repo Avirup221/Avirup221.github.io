@@ -4,392 +4,394 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avirup Das | AI Researcher & Data Scientist</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                        display: ['Space Grotesk', 'sans-serif'],
                     },
                     colors: {
-                        glass: "rgba(255, 255, 255, 0.05)",
-                        glassHover: "rgba(255, 255, 255, 0.1)",
-                        accent: "#64ffda", // Cyan/Teal for AI look
-                        secondary: "#ccd6f6",
+                        glass: {
+                            100: 'rgba(255, 255, 255, 0.05)',
+                            200: 'rgba(255, 255, 255, 0.1)',
+                            300: 'rgba(255, 255, 255, 0.2)',
+                            border: 'rgba(255, 255, 255, 0.1)',
+                        },
+                        brand: {
+                            accent: '#6366f1', // Indigo 500
+                            glow: '#818cf8',    // Indigo 400
+                        }
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
-                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
                     },
                     keyframes: {
                         blob: {
-                            "0%": { transform: "translate(0px, 0px) scale(1)" },
-                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
-                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
-                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
                         },
-                        fadeInUp: {
-                            "0%": { opacity: "0", transform: "translateY(20px)" },
-                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
                         }
                     }
                 }
             }
         }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         body {
-            background-color: #0a192f;
-            color: #8892b0;
-        }
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0a192f;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5568;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #64ffda;
-        }
-        
-        .glass-card {
-            background: rgba(17, 34, 64, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: #64ffda;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #64ffda, #00b4d8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            background-color: #050505;
+            color: #ffffff;
+            overflow-x: hidden;
         }
 
-        .nav-glass {
-            background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+        /* The Glass Effect Class */
+        .glass-card {
+            background: rgba(20, 20, 30, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Text Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #818cf8, #c084fc, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="relative overflow-x-hidden antialiased font-sans selection:bg-teal-300 selection:text-teal-900">
+<body class="antialiased selection:bg-brand-accent selection:text-white">
 
-    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-4000"></div>
     </div>
 
-    <nav class="fixed w-full z-50 nav-glass transition-all duration-300">
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-accent font-mono text-xl font-bold">&lt;Avirup /&gt;</a>
-            <div class="hidden md:flex gap-8 font-mono text-sm">
-                <a href="#about" class="hover:text-accent transition-colors"><span class="text-accent">01.</span> About</a>
-                <a href="#experience" class="hover:text-accent transition-colors"><span class="text-accent">02.</span> Experience</a>
-                <a href="#projects" class="hover:text-accent transition-colors"><span class="text-accent">03.</span> Work</a>
-                <a href="#contact" class="px-4 py-2 border border-accent text-accent rounded hover:bg-accent/10 transition-colors">Resume</a>
+            <a href="#" class="text-xl font-bold tracking-tight">AVIRUP<span class="text-brand-accent">.AI</span></a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#featured" class="hover:text-white transition-colors">Work</a>
+                <a href="#research" class="hover:text-white transition-colors">Research</a>
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#contact" class="px-5 py-2 glass-card rounded-full hover:bg-white/10 transition-all text-white border border-brand-accent/30">
+                    Get in Touch
+                </a>
             </div>
         </div>
     </nav>
 
-    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
-        <div class="max-w-5xl mx-auto">
-            <p class="text-accent font-mono mb-5 animate-fade-in-up" style="animation-delay: 0.1s">Hi, my name is</p>
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-100 mb-4 font-display animate-fade-in-up" style="animation-delay: 0.2s">
-                Avirup Das.
-            </h1>
-            <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mb-8 font-display animate-fade-in-up" style="animation-delay: 0.3s">
-                I build autonomous AI agents.
-            </h2>
-            <p class="max-w-xl text-lg mb-12 animate-fade-in-up" style="animation-delay: 0.4s">
-                I'm a Master's student in <span class="text-accent">Big Data Analytics</span> specializing in Agentic RAG, Computer Vision, and Deep Learning. Currently, I'm architecting multi-agent systems that understand and reason.
-            </p>
-            <div class="animate-fade-in-up" style="animation-delay: 0.5s">
-                <a href="#projects" class="px-8 py-4 border border-accent text-accent rounded font-mono hover:bg-accent/10 transition-colors">Check out my work</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-24 px-6">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-4 mb-12">
-                <span class="text-2xl font-mono text-accent">01.</span>
-                <h2 class="text-3xl font-bold text-gray-100 font-display">About Me</h2>
-                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-12">
-                <div class="md:col-span-2 text-lg leading-relaxed">
-                    <p class="mb-6">
-                        Hello! I'm Avirup, a curious mind from Kolkata, India. My journey started with a deep love for <span class="text-accent">Mathematics</span> (where I earned a Gold Medal in my B.Sc.), which naturally evolved into a passion for the algorithms that drive Artificial Intelligence.
-                    </p>
-                    <p class="mb-6">
-                        Currently, I am pursuing my M.Sc. in Big Data Analytics at <span class="text-accent">RKMVERI</span>. I don't just train models; I build systems. My recent focus has been on <span class="text-accent">Agentic RAG</span>—creating AI that can plan, search, and reason to solve complex queries.
-                    </p>
-                    <p class="mb-6">Here are a few technologies I've been working with recently:</p>
-                    <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Python & PyTorch</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> LangChain & LangGraph</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Neo4j (Graph DB)</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Docker & Linux</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Computer Vision (3D CNN)</li>
-                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Apache Spark</li>
-                    </ul>
-                </div>
-                
-                <div class="relative group mx-auto w-64 h-64">
-                    <div class="absolute inset-0 border-2 border-accent rounded translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
-                    <div class="relative w-full h-full rounded overflow-hidden bg-accent/20 grayscale group-hover:grayscale-0 transition-all duration-300">
-                        <img src="https://via.placeholder.com/400" alt="Avirup Das" class="w-full h-full object-cover mix-blend-multiply filter hover:mix-blend-normal">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience" class="py-24 px-6 bg-[#0d1f3d]/50">
-        <div class="max-w-4xl mx-auto">
-            <div class="flex items-center gap-4 mb-12">
-                <span class="text-2xl font-mono text-accent">02.</span>
-                <h2 class="text-3xl font-bold text-gray-100 font-display">Where I've Worked</h2>
-                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
-            </div>
-
-            <div class="space-y-12 border-l-2 border-gray-700 ml-3 md:ml-0 pl-8 md:pl-12 relative">
-                
-                <div class="relative group">
-                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
-                    <h3 class="text-xl font-bold text-gray-100">Summer Research Intern <span class="text-accent">@ FLAME University</span></h3>
-                    <p class="font-mono text-sm mb-4">June 2025 - July 2025</p>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Developed a real-time <span class="text-white">Sun Salutation Pose Guide</span> using MediaPipe and Custom 3D CNNs.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Implemented Vision Transformers (ViT) to capture spatio-temporal features for accurate feedback on yoga forms.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Worked under the supervision of Dr. Chiranjoy Chattopadhyay.</span></li>
-                    </ul>
-                </div>
-
-                <div class="relative group">
-                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
-                    <h3 class="text-xl font-bold text-gray-100">Placement Coordinator <span class="text-accent">@ RKMVERI</span></h3>
-                    <p class="font-mono text-sm mb-4">2024 - Present</p>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Managing the Placement Cell for the 2024-26 batch.</span></li>
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Organized technical fests and coordinated between students and recruiters.</span></li>
-                    </ul>
-                </div>
-
-                 <div class="relative group">
-                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
-                    <h3 class="text-xl font-bold text-gray-100">Subject Matter Expert <span class="text-accent">@ Chegg India</span></h3>
-                    <p class="font-mono text-sm mb-4">Remote</p>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Provided detailed, step-by-step solutions for complex Mathematics and Computer Science problems.</span></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="py-24 px-6">
-        <div class="max-w-5xl mx-auto">
-            <div class="flex items-center gap-4 mb-12">
-                <span class="text-2xl font-mono text-accent">03.</span>
-                <h2 class="text-3xl font-bold text-gray-100 font-display">Some Things I've Built</h2>
-                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
-            </div>
-
-            <div class="relative grid md:grid-cols-12 gap-4 mb-24 items-center">
-                <div class="md:col-span-7 relative h-[350px] bg-slate-800 rounded overflow-hidden border border-gray-700 group hover:border-accent/50 transition-colors">
-                    <div class="absolute inset-0 bg-gray-900/40 group-hover:bg-transparent transition-all duration-300"></div>
-                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-[#112240]">
-                        <i class="fas fa-robot text-8xl text-accent/20"></i>
-                    </div>
-                </div>
-
-                <div class="md:col-span-5 md:text-right md:absolute md:right-0 md:w-1/2 z-10 p-4 md:p-0 bg-[#0a192f]/90 md:bg-transparent rounded">
-                    <p class="text-accent font-mono text-sm my-2">Featured Project</p>
-                    <h3 class="text-2xl font-bold text-gray-100 mb-4 hover:text-accent transition-colors">Multi-Agent Smart Shopping</h3>
-                    
-                    <div class="glass-card p-6 rounded shadow-xl text-sm leading-relaxed text-gray-300 mb-4 text-left md:text-right">
-                        An Agentic RAG system built with <span class="text-accent">LangGraph</span>. It uses multiple AI agents to understand user shopping queries, fetch real-time data from <span class="text-accent">Google Shopping (SerpAPI)</span>, and provide budget-aware recommendations with deduplication.
-                    </div>
-
-                    <ul class="flex flex-wrap md:justify-end gap-x-4 gap-y-2 font-mono text-xs text-gray-400 mb-6">
-                        <li>LangGraph</li>
-                        <li>Groq LLM</li>
-                        <li>SerpAPI</li>
-                        <li>Agentic RAG</li>
-                    </ul>
-
-                    <div class="flex md:justify-end gap-4 text-gray-300">
-                        <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github text-xl"></i></a>
-                        <a href="#" class="hover:text-accent"><i class="fas fa-external-link-alt text-xl"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="relative grid md:grid-cols-12 gap-4 mb-24 items-center">
-                <div class="md:col-span-5 z-10 p-4 md:p-0 bg-[#0a192f]/90 md:bg-transparent rounded order-2 md:order-1">
-                    <p class="text-accent font-mono text-sm my-2">Featured Project</p>
-                    <h3 class="text-2xl font-bold text-gray-100 mb-4 hover:text-accent transition-colors">NewsSense AI</h3>
-                    
-                    <div class="glass-card p-6 rounded shadow-xl text-sm leading-relaxed text-gray-300 mb-4">
-                        An autonomous news summarizer and fact-checker. Implements a <span class="text-accent">Planner Agent</span> that intelligently decides when to fetch Wikipedia data vs NewsAPI, summarizes content, and performs sentiment analysis automatically.
-                    </div>
-
-                    <ul class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-gray-400 mb-6">
-                        <li>LangChain</li>
-                        <li>Streamlit</li>
-                        <li>Wikipedia API</li>
-                        <li>NLP</li>
-                    </ul>
-
-                    <div class="flex gap-4 text-gray-300">
-                        <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github text-xl"></i></a>
-                        <a href="#" class="hover:text-accent"><i class="fas fa-external-link-alt text-xl"></i></a>
-                    </div>
-                </div>
-
-                <div class="md:col-span-7 relative h-[350px] bg-slate-800 rounded overflow-hidden border border-gray-700 group hover:border-accent/50 transition-colors order-1 md:order-2 md:-ml-8">
-                    <div class="absolute inset-0 bg-gray-900/40 group-hover:bg-transparent transition-all duration-300"></div>
-                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-bl from-gray-800 to-[#112240]">
-                        <i class="fas fa-newspaper text-8xl text-accent/20"></i>
-                    </div>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-bold text-center text-gray-100 mb-10 font-display">Other Note-worthy Projects</h3>
-            <div class="grid md:grid-cols-3 gap-6">
-
-                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
-                    <div class="flex justify-between items-center mb-6">
-                        <i class="far fa-folder text-accent text-3xl"></i>
-                        <div class="flex gap-4 text-gray-400">
-                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Sun Salutation Guide</h4>
-                    <p class="text-sm text-gray-400 mb-4 flex-grow">
-                        Real-time yoga pose guidance using MediaPipe and a custom 3D Quadtree CNN. 
-                    </p>
-                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
-                        <li>PyTorch</li>
-                        <li>3D CNN</li>
-                        <li>Vision</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
-                    <div class="flex justify-between items-center mb-6">
-                        <i class="far fa-folder text-accent text-3xl"></i>
-                        <div class="flex gap-4 text-gray-400">
-                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Speech Emotion Recog.</h4>
-                    <p class="text-sm text-gray-400 mb-4 flex-grow">
-                        Deep learning system using MFCC features and CNNs to classify human emotions from audio files (RAVDESS/SAVEE).
-                    </p>
-                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
-                        <li>Librosa</li>
-                        <li>CNN</li>
-                        <li>Audio</li>
-                    </ul>
-                </div>
-
-                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
-                    <div class="flex justify-between items-center mb-6">
-                        <i class="far fa-folder text-accent text-3xl"></i>
-                        <div class="flex gap-4 text-gray-400">
-                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Graph RecSys</h4>
-                    <p class="text-sm text-gray-400 mb-4 flex-grow">
-                        Recommendation engine combining content-based filtering with Neo4j graph algorithms and cosine similarity.
-                    </p>
-                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
-                        <li>Neo4j</li>
-                        <li>Sklearn</li>
-                        <li>Graphs</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="py-24 px-6 max-w-4xl mx-auto">
-         <div class="flex items-center gap-4 mb-12">
-            <h2 class="text-2xl font-bold text-gray-100 font-display">Education & Achievements</h2>
-            <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            <div>
-                <h3 class="text-accent font-mono mb-4">Education</h3>
-                <div class="mb-6">
-                    <h4 class="text-white font-bold">M.Sc. Big Data Analytics</h4>
-                    <p class="text-sm text-gray-400">RKMVERI (2024-2026)</p>
-                    <p class="text-xs text-gray-500 mt-1">CGPA: 8.10</p>
-                </div>
-                <div class="mb-6">
-                    <h4 class="text-white font-bold">B.Sc. Mathematics</h4>
-                    <p class="text-sm text-gray-400">Ramakrishna Mission Residential College (2021-2024)</p>
-                    <p class="text-xs text-gray-500 mt-1">CGPA: 9.10</p>
-                </div>
-            </div>
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative px-6">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             
-            <div>
-                <h3 class="text-accent font-mono mb-4">Achievements</h3>
-                <ul class="space-y-3 text-sm text-gray-400">
-                    <li class="flex gap-2"><i class="fas fa-trophy text-yellow-500 mt-1"></i> <span>Gold Medalist (1st Class, 4th Rank) in B.Sc. Mathematics.</span></li>
-                    <li class="flex gap-2"><i class="fas fa-star text-yellow-500 mt-1"></i> <span>Top 5% in NPTEL "Joy of Computing with Python".</span></li>
-                    <li class="flex gap-2"><i class="fas fa-award text-yellow-500 mt-1"></i> <span>Ray and Martin Scholarship (2019).</span></li>
-                </ul>
+            <div class="order-2 md:order-1 space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full glass-card text-brand-glow text-xs font-semibold tracking-wide uppercase mb-2">
+                    Available for AI Roles
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                    Building <br>
+                    <span class="text-gradient">Agentic Intelligence</span>
+                </h1>
+                <p class="text-lg text-gray-400 max-w-lg leading-relaxed">
+                    I am <strong class="text-white">Avirup Das</strong>, a researcher and engineer specializing in 
+                    <span class="text-gray-200">Retrieval Augmented Generation (RAG)</span>, 
+                    <span class="text-gray-200">Deep Learning</span>, and 
+                    <span class="text-gray-200">Computer Vision</span>.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#featured" class="px-8 py-3 bg-brand-accent hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-lg shadow-indigo-500/25">
+                        View Projects
+                    </a>
+                    <a href="AvirupResume.pdf" target="_blank" class="px-8 py-3 glass-card hover:bg-white/5 text-white rounded-lg font-medium transition-all">
+                        Resume <i class="fas fa-download ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-6 pt-8 text-gray-500">
+                    <a href="https://github.com/Avirup221" class="hover:text-white transition-colors"><i class="fab fa-github text-2xl"></i></a>
+                    <a href="https://linkedin.com/in/avirup-das-346266236/" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+                    <a href="mailto:avirupdas221@gmail.com" class="hover:text-white transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 flex justify-center relative animate-float">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 glass-card rounded-3xl transform rotate-6 z-0"></div>
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 z-10 bg-gray-900">
+                        <img src="my pic.jpg" alt="Avirup Das" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl z-20 border border-brand-accent/20">
+                        <div class="text-xs text-gray-400 uppercase tracking-wider">Education</div>
+                        <div class="font-bold text-white">M.Sc. Big Data Analytics</div>
+                        <div class="text-brand-glow text-xs">RKMVERI</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-6">
+        <div class="container mx-auto">
+            <div class="glass-card rounded-2xl p-8 md:p-12 reveal">
+                <div class="grid md:grid-cols-3 gap-8 text-center md:text-left divide-y md:divide-y-0 md:divide-x divide-gray-800">
+                    
+                    <div class="px-4">
+                        <div class="text-4xl font-bold text-white mb-2">Top 5%</div>
+                        <div class="text-sm text-gray-400 uppercase tracking-wide">NPTEL Python Certification</div>
+                        <p class="mt-2 text-gray-500 text-sm">Recognized for excellence in computational problem solving.</p>
+                    </div>
+
+                    <div class="px-4 pt-8 md:pt-0">
+                        <div class="text-4xl font-bold text-white mb-2">Gold Medal</div>
+                        <div class="text-sm text-gray-400 uppercase tracking-wide">B.Sc. Mathematics</div>
+                        <p class="mt-2 text-gray-500 text-sm">Graduated 1st Class, 4th Rank from RKMRC.</p>
+                    </div>
+
+                    <div class="px-4 pt-8 md:pt-0">
+                        <div class="text-4xl font-bold text-white mb-2">3+</div>
+                        <div class="text-sm text-gray-400 uppercase tracking-wide">Major AI Projects</div>
+                        <p class="mt-2 text-gray-500 text-sm">Specializing in LangChain, RAG, and Vision Transformers.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="featured" class="py-20 px-6 relative">
+        <div class="container mx-auto max-w-6xl">
+            <div class="flex items-center gap-4 mb-16 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white">Selected Work</h2>
+                <div class="h-px bg-gradient-to-r from-brand-accent to-transparent flex-grow"></div>
+            </div>
+
+            <div class="group relative grid md:grid-cols-12 gap-6 items-center mb-32 reveal">
+                <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    <div class="w-full h-full bg-gray-900 flex items-center justify-center">
+                        <i class="fas fa-network-wired text-8xl text-indigo-500/20 group-hover:text-indigo-500/40 transition-all"></i>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-5 md:-ml-12 z-20 md:text-right relative">
+                    <div class="text-brand-glow font-mono text-sm mb-2">Agentic Workflow</div>
+                    <h3 class="text-3xl font-bold text-white mb-4">NewsSense AI</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#111928]/80">
+                        An autonomous news analysis system. I designed a <span class="text-white font-semibold">Planner Agent</span> that intelligently delegates tasks: fetching live data via APIs, summarizing via LLMs, and fact-checking against Wikipedia. It solves the hallucination problem in standard RAG.
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3 text-xs font-mono text-gray-400 mb-6">
+                        <span class="bg-white/5 px-2 py-1 rounded">LangChain</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Python</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">RAG</span>
+                    </div>
+
+                    <div class="flex justify-end gap-4">
+                        <a href="https://github.com/Avirup221" target="_blank" class="text-white hover:text-brand-accent transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative grid md:grid-cols-12 gap-6 items-center mb-32 reveal">
+                
+                <div class="md:col-span-5 md:-mr-12 z-20 md:text-left order-2 md:order-1 relative">
+                    <div class="text-brand-glow font-mono text-sm mb-2">Multi-Agent System</div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Smart Shopping Intelligence</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#111928]/80">
+                        A budget-aware recommendation engine built on <span class="text-white font-semibold">LangGraph</span>. It orchestrates multiple agents to understand user intent, search real-time prices via <span class="text-white font-semibold">SerpAPI</span>, and rank products based on semantic relevance and constraints.
+                    </div>
+
+                    <div class="flex flex-wrap justify-start gap-3 text-xs font-mono text-gray-400 mb-6">
+                        <span class="bg-white/5 px-2 py-1 rounded">LangGraph</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Groq LLM</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">SerpAPI</span>
+                    </div>
+
+                    <div class="flex justify-start gap-4">
+                        <a href="https://github.com/Avirup221" target="_blank" class="text-white hover:text-brand-accent transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2 order-1 md:order-2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    <div class="w-full h-full bg-gray-900 flex items-center justify-center">
+                        <i class="fas fa-shopping-cart text-8xl text-purple-500/20 group-hover:text-purple-500/40 transition-all"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="research" class="py-20 px-6 bg-black/20">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl font-bold text-white mb-12 text-center reveal">Other Noteworthy Projects</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-child text-4xl text-brand-accent"></i>
+                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Sun Salutation Guide</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Research Intern Project. Real-time yoga pose correction using MediaPipe and a custom 3D Quadtree CNN to capture spatio-temporal features.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
+                        <span>PyTorch</span>
+                        <span>3D CNN</span>
+                        <span>OpenCV</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal delay-100">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-wave-square text-4xl text-brand-accent"></i>
+                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Speech Emotion Rec.</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Deep Learning model classifying emotions from voice audio. Used extensive MFCC feature extraction and augmentation on the RAVDESS dataset.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
+                        <span>Librosa</span>
+                        <span>CNN</span>
+                        <span>Audio</span>
+                    </div>
+                </div>
+
+                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal delay-200">
+                    <div class="flex justify-between items-start mb-6">
+                        <i class="fas fa-project-diagram text-4xl text-brand-accent"></i>
+                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Graph RecSys</h3>
+                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
+                        Hybrid recommendation engine using Neo4j graph database. Combines content-based filtering with collaborative user-item interaction graphs.
+                    </p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
+                        <span>Neo4j</span>
+                        <span>Cypher</span>
+                        <span>Scikit-Learn</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-20 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-brand-accent">03.</span> Experience</h2>
+            
+            <div class="space-y-12 border-l border-white/10 ml-4 md:ml-0 pl-8 md:pl-12 relative">
+                
+                <div class="reveal relative">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full bg-brand-accent border-4 border-[#050505]"></div>
+                    <h3 class="text-xl font-bold text-white">AI Research Intern</h3>
+                    <div class="text-brand-glow font-mono text-sm mb-2">FLAME University | June 2024 – Aug 2025</div>
+                    <p class="text-gray-400 max-w-2xl leading-relaxed">
+                        Worked under Dr. Chiranjoy Chattopadhyay to develop a computer vision system for real-time Sun Salutation pose classification. Optimized CNN models for high-accuracy inference on edge constraints.
+                    </p>
+                </div>
+
+                <div class="reveal relative">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full bg-gray-700 border-4 border-[#050505]"></div>
+                    <h3 class="text-xl font-bold text-white">Subject Matter Expert (Math)</h3>
+                    <div class="text-brand-glow font-mono text-sm mb-2">Chegg India | June 2025 – Aug 2025</div>
+                    <p class="text-gray-400 max-w-2xl leading-relaxed">
+                        Authored detailed technical solutions for complex mathematics and computer science problems, ensuring high pedagogical standards.
+                    </p>
+                </div>
+
+                <div class="reveal relative">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full bg-gray-700 border-4 border-[#050505]"></div>
+                    <h3 class="text-xl font-bold text-white">Placement Coordinator</h3>
+                    <div class="text-brand-glow font-mono text-sm mb-2">RKMVERI | 2024 – Present</div>
+                    <p class="text-gray-400 max-w-2xl leading-relaxed">
+                        Leading the placement cell for the M.Sc. Big Data Analytics batch. Organizing industry connections and technical preparation workshops.
+                    </p>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-24 px-6 text-center">
-        <div class="max-w-2xl mx-auto">
-            <p class="text-accent font-mono mb-4">04. What's Next?</p>
-            <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6 font-display">Get In Touch</h2>
-            <p class="text-lg text-gray-400 mb-12">
-                I am currently looking for full-time opportunities in AI and Data Science. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        <div class="container mx-auto max-w-2xl reveal">
+            <h2 class="text-4xl font-bold text-white mb-6">What's Next?</h2>
+            <p class="text-gray-400 text-lg mb-8">
+                I am currently looking for full-time opportunities in AI/ML Engineering and Data Science. 
+                Whether you have a question or just want to say hi, my inbox is always open!
             </p>
-            
-            <a href="mailto:avirupdas221@gmail.com" class="inline-block px-10 py-5 border border-accent text-accent rounded font-mono hover:bg-accent/10 transition-colors">
+            <a href="mailto:avirupdas221@gmail.com" class="inline-block px-10 py-4 border border-brand-accent text-brand-accent hover:bg-brand-accent/10 rounded font-mono transition-all">
                 Say Hello
             </a>
-
-            <div class="flex justify-center gap-8 mt-12 text-2xl text-gray-400">
-                <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/avirup-das-346266236/" target="_blank" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:avirupdas221@gmail.com" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fas fa-envelope"></i></a>
-            </div>
             
-            <footer class="mt-20 text-xs font-mono text-gray-500">
-                <p>Designed & Built by Avirup Das</p>
-            </footer>
+            <div class="mt-20 pt-10 border-t border-white/10 text-sm text-gray-600 font-mono">
+                <p>&copy; 2026 Avirup Das. Built with Glassmorphism & Tailwind.</p>
+            </div>
         </div>
     </section>
 
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+    </script>
 </body>
 </html>

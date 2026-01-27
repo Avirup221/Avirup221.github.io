@@ -1,317 +1,204 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Avirup Das - Portfolio</title>
-    <!-- Tailwind CSS CDN -->
+    <title>Avirup Das | AI Researcher & Data Scientist</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for social media icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        glass: "rgba(255, 255, 255, 0.05)",
+                        glassHover: "rgba(255, 255, 255, 0.1)",
+                        accent: "#64ffda", // Cyan/Teal for AI look
+                        secondary: "#ccd6f6",
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        blob: {
+                            "0%": { transform: "translate(0px, 0px) scale(1)" },
+                            "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+                            "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+                            "100%": { transform: "translate(0px, 0px) scale(1)" }
+                        },
+                        fadeInUp: {
+                            "0%": { opacity: "0", transform: "translateY(20px)" },
+                            "100%": { opacity: "1", transform: "translateY(0)" }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        /* Custom styles for smoother transitions and gradient backgrounds */
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
+            background-color: #0a192f;
+            color: #8892b0;
         }
-
-        .section-content {
-            background: rgba(255, 255, 255, 0.95); /* Slightly less opaque for better backdrop effect */
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a192f;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4a5568;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64ffda;
+        }
+        
+        .glass-card {
+            background: rgba(17, 34, 64, 0.7);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            animation: fadeInUp 0.8s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: #64ffda;
         }
-
-        /* Specific gradient for main headings */
+        
         .gradient-text {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #64ffda, #00b4d8);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
-        /* Underline effect for H2 */
-        h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 2px;
-            margin: 10px auto 0;
-        }
-
-        /* Custom button styles */
-        .btn {
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            @apply shadow-md; /* Apply a default shadow */
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            @apply hover:shadow-lg;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            @apply hover:text-white hover:bg-indigo-600 hover:border-indigo-600;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* Social Link hover effect */
-        .social-link {
-            @apply relative overflow-hidden;
-        }
-
-        .social-link::before {
-            content: '';
-            @apply absolute top-0 left-[-100%] w-full h-full;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            transition: left 0.3s ease;
-            z-index: -1;
-        }
-
-        .social-link:hover::before {
-            left: 0;
-        }
-
-        .social-link:hover {
-            @apply text-white transform -translate-y-1 scale-110 shadow-lg;
-        }
-
-        /* Specific social link gradients for background-before */
-        .social-link.linkedin::before {
-            background: linear-gradient(135deg, #0077b5, #00a0dc);
-        }
-        .social-link.github::before {
-            background: linear-gradient(135deg, #333, #666);
-        }
-        .social-link.email::before {
-            background: linear-gradient(135deg, #ea4335, #fbbc05);
-        }
-
-        /* Skill progress bar animation */
-        .progress-fill {
-            transition: width 2s ease-out;
-        }
-
-        /* Responsive timeline */
-        @media (max-width: 768px) {
-            .section-content {
-                padding: 1.5rem;
-            }
-            .home-content h1 {
-                font-size: 2.5rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            .social-links {
-                gap: 1rem;
-            }
-            .social-link {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
+        .nav-glass {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
         }
     </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-white bg-opacity-95 backdrop-blur-md z-50 py-4 shadow-lg">
-        <div class="container mx-auto px-4">
-            <ul class="flex justify-center items-center flex-wrap gap-x-8 gap-y-2">
-                <li><a href="#home" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Home</a></li>
-                <li><a href="#about" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">About</a></li>
-                <li><a href="#skills" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Skills</a></li>
-                <li><a href="#education" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Education</a></li>
-                <li><a href="#projects" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Projects</a></li>
-                <li><a href="#experience" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Experience</a></li>
-                <li><a href="#contact" class="text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300 relative py-2">Contact</a></li>
-            </ul>
+<body class="relative overflow-x-hidden antialiased font-sans selection:bg-teal-300 selection:text-teal-900">
+
+    <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob"></div>
+        <div class="absolute top-0 right-1/4 w-96 h-96 bg-teal-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-blue-500 rounded-full mix-blend-screen filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+    </div>
+
+    <nav class="fixed w-full z-50 nav-glass transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-accent font-mono text-xl font-bold">&lt;Avirup /&gt;</a>
+            <div class="hidden md:flex gap-8 font-mono text-sm">
+                <a href="#about" class="hover:text-accent transition-colors"><span class="text-accent">01.</span> About</a>
+                <a href="#experience" class="hover:text-accent transition-colors"><span class="text-accent">02.</span> Experience</a>
+                <a href="#projects" class="hover:text-accent transition-colors"><span class="text-accent">03.</span> Work</a>
+                <a href="#contact" class="px-4 py-2 border border-accent text-accent rounded hover:bg-accent/10 transition-colors">Resume</a>
+            </div>
         </div>
     </nav>
 
-    <!-- Home Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content text-center max-w-4xl">
-            <div class="home-content">
-                <div class="profile-img w-48 h-48 rounded-full mx-auto mb-8 border-4 border-white shadow-xl flex items-center justify-center bg-gray-100 transform transition-transform duration-300 hover:scale-105">
-                    <!-- Placeholder image URL, replace with your actual image path -->
-                    <img src="my pic.jpg" alt="Avirup Das" class="w-full h-full object-cover rounded-full">
-                </div>
-                <h1 class="text-5xl font-extrabold mb-4 gradient-text">Avirup Das</h1>
-                <p class="text-lg md:text-xl leading-relaxed mb-8 max-w-2xl mx-auto text-gray-700">
-                    Welcome to my portfolio! I'm pursuing an M.Sc. in Big Data Analytics at RKMVERI. <br class="hidden md:block">
-                    I'm passionate about Machine Learning, Deep Learning, and Data Science, with hands-on experience in Python, PyTorch, and Apache Spark. 
-                    Explore my academic and project journey here!
-                </p>
-                <div class="cta-buttons flex justify-center gap-4 flex-wrap">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <!-- Replace 'your_resume.pdf' with your actual PDF link -->
-                    <a href="AvirupResume.pdf" class="btn btn-secondary" target="_blank">My Resume</a>
-                    <a href="#contact" class="btn btn-primary">Get In Touch</a>
+    <section class="min-h-screen flex items-center justify-center px-6 pt-20">
+        <div class="max-w-5xl mx-auto">
+            <p class="text-accent font-mono mb-5 animate-fade-in-up" style="animation-delay: 0.1s">Hi, my name is</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-100 mb-4 font-display animate-fade-in-up" style="animation-delay: 0.2s">
+                Avirup Das.
+            </h1>
+            <h2 class="text-4xl md:text-6xl font-bold text-gray-400 mb-8 font-display animate-fade-in-up" style="animation-delay: 0.3s">
+                I build autonomous AI agents.
+            </h2>
+            <p class="max-w-xl text-lg mb-12 animate-fade-in-up" style="animation-delay: 0.4s">
+                I'm a Master's student in <span class="text-accent">Big Data Analytics</span> specializing in Agentic RAG, Computer Vision, and Deep Learning. Currently, I'm architecting multi-agent systems that understand and reason.
+            </p>
+            <div class="animate-fade-in-up" style="animation-delay: 0.5s">
+                <a href="#projects" class="px-8 py-4 border border-accent text-accent rounded font-mono hover:bg-accent/10 transition-colors">Check out my work</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono text-accent">01.</span>
+                <h2 class="text-3xl font-bold text-gray-100 font-display">About Me</h2>
+                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="md:col-span-2 text-lg leading-relaxed">
+                    <p class="mb-6">
+                        Hello! I'm Avirup, a curious mind from Kolkata, India. My journey started with a deep love for <span class="text-accent">Mathematics</span> (where I earned a Gold Medal in my B.Sc.), which naturally evolved into a passion for the algorithms that drive Artificial Intelligence.
+                    </p>
+                    <p class="mb-6">
+                        Currently, I am pursuing my M.Sc. in Big Data Analytics at <span class="text-accent">RKMVERI</span>. I don't just train models; I build systems. My recent focus has been on <span class="text-accent">Agentic RAG</span>—creating AI that can plan, search, and reason to solve complex queries.
+                    </p>
+                    <p class="mb-6">Here are a few technologies I've been working with recently:</p>
+                    <ul class="grid grid-cols-2 gap-2 font-mono text-sm">
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Python & PyTorch</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> LangChain & LangGraph</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Neo4j (Graph DB)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Docker & Linux</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Computer Vision (3D CNN)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-caret-right text-accent"></i> Apache Spark</li>
+                    </ul>
                 </div>
                 
-                <!-- Social Media Links -->
-                <div class="social-links flex justify-center gap-6 mt-8">
-                    <a href="https://linkedin.com/in/avirup-das-346266236/" target="_blank" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 linkedin" title="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/Avirup221" target="_blank" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 github" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="mailto:avirupdas221@gmail.com" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 email" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="relative group mx-auto w-64 h-64">
+                    <div class="absolute inset-0 border-2 border-accent rounded translate-x-4 translate-y-4 transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                    <div class="relative w-full h-full rounded overflow-hidden bg-accent/20 grayscale group-hover:grayscale-0 transition-all duration-300">
+                        <img src="https://via.placeholder.com/400" alt="Avirup Das" class="w-full h-full object-cover mix-blend-multiply filter hover:mix-blend-normal">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Me Section -->
-    <section id="about" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content text-center max-w-4xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">About Me</h2>
-            <p class="text-lg md:text-xl leading-relaxed mb-6 max-w-3xl mx-auto text-gray-700">
-                I'm Avirup Das, currently pursuing an M.Sc. in Big Data Analytics at RKMVERI. I have a strong passion for 
-                Machine Learning, Deep Learning, and Computer Vision, and I enjoy applying these technologies to solve 
-                real-world problems. My academic journey has equipped me with hands-on experience in tools like Python, 
-                PyTorch, Apache Spark, and Power BI.
-            </p>
-            <p class="text-lg md:text-xl leading-relaxed max-w-3xl mx-auto text-gray-700">
-                I'm a curious learner who believes in continuous growth through experimentation and projects. 
-                Outside the world of code and algorithms, I love reading storybooks, watching movies, and playing cricket. 
-                I'm always eager to collaborate on innovative and impactful ideas with like-minded individuals.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content max-w-4xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Skills</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-
-                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div class="skill-icon text-5xl mb-4 text-indigo-600">📊</div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Data Science</h3>
-                    <p class="text-gray-700 mb-4">Python, Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn</p>
-                    <div class="skill-progress w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" data-initial-width="90%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div class="skill-icon text-5xl mb-4 text-indigo-600">🤖</div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Machine Learning & DL</h3>
-                    <p class="text-gray-700 mb-4">PyTorch, CNNs, RNNs, SVM, Decision Trees, Ensemble Methods</p>
-                    <div class="skill-progress w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" data-initial-width="85%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div class="skill-icon text-5xl mb-4 text-indigo-600">🌐</div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Big Data Tools</h3>
-                    <p class="text-gray-700 mb-4">Apache Spark, Hadoop, HDFS, PySpark</p>
-                    <div class="skill-progress w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" data-initial-width="80%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div class="skill-icon text-5xl mb-4 text-indigo-600">📈</div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Visualization & BI</h3>
-                    <p class="text-gray-700 mb-4">Power BI, Matplotlib, Seaborn</p>
-                    <div class="skill-progress w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" data-initial-width="75%"></div>
-                    </div>
-                </div>
-
-                <div class="skill-card bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div class="skill-icon text-5xl mb-4 text-indigo-600">🛠️</div>
-                    <h3 class="text-xl font-semibold mb-2 text-gray-800">Dev & Tools</h3>
-                    <p class="text-gray-700 mb-4">Jupyter, Colab, Git, Linux (WSL), VS Code</p>
-                    <div class="skill-progress w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                        <div class="progress-fill h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" data-initial-width="85%"></div>
-                    </div>
-                </div>
-
+    <section id="experience" class="py-24 px-6 bg-[#0d1f3d]/50">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono text-accent">02.</span>
+                <h2 class="text-3xl font-bold text-gray-100 font-display">Where I've Worked</h2>
+                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
             </div>
-        </div>
-    </section>
 
-   <!-- Education Section (New Timeline Format) -->
-    <section id="education" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content max-w-5xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Education</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                <!-- Timeline Item 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <span class="block text-indigo-600 text-sm font-semibold mb-2">2024–2026</span>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">M.Sc. in Big Data Analytics</h3>
-                    <p class="text-lg text-gray-700 mb-2"><strong>Ramakrishna Mission Vivekananda Educational and Research Institute (RKMVERI)</strong></p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2 text-base">
-                        <li>Relevant coursework: Machine Learning, Deep Learning, Big Data Technologies, Statistical Inference, Data Visualization</li>
-                        <li>Tools: Python, PySpark, Hadoop, Power BI, Jupyter</li>
+            <div class="space-y-12 border-l-2 border-gray-700 ml-3 md:ml-0 pl-8 md:pl-12 relative">
+                
+                <div class="relative group">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
+                    <h3 class="text-xl font-bold text-gray-100">Summer Research Intern <span class="text-accent">@ FLAME University</span></h3>
+                    <p class="font-mono text-sm mb-4">June 2025 - July 2025</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Developed a real-time <span class="text-white">Sun Salutation Pose Guide</span> using MediaPipe and Custom 3D CNNs.</span></li>
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Implemented Vision Transformers (ViT) to capture spatio-temporal features for accurate feedback on yoga forms.</span></li>
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Worked under the supervision of Dr. Chiranjoy Chattopadhyay.</span></li>
                     </ul>
                 </div>
 
-                <!-- Timeline Item 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <span class="block text-indigo-600 text-sm font-semibold mb-2">2021–2024</span>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">B.Sc. in Mathematics</h3>
-                    <p class="text-lg text-gray-700 mb-2"><strong>Ramakrishna Mission Residential College (Autonomous)</strong></p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2 text-base">
-                        <li>Graduated with 1st Class 4th Rank</li>
-                        <li>CGPA: 9.10</li>
-                        <li>Linear Algebra, Statistics and probability</li>
+                <div class="relative group">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
+                    <h3 class="text-xl font-bold text-gray-100">Placement Coordinator <span class="text-accent">@ RKMVERI</span></h3>
+                    <p class="font-mono text-sm mb-4">2024 - Present</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Managing the Placement Cell for the 2024-26 batch.</span></li>
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Organized technical fests and coordinated between students and recruiters.</span></li>
                     </ul>
                 </div>
 
-                <!-- Timeline Item 3 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <span class="block text-indigo-600 text-sm font-semibold mb-2">2019–2021</span>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Higher Secondary Education</h3>
-                    <p class="text-lg text-gray-700 mb-2"><strong>A C Institution</strong></p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2 text-base">
-                        <li>Science Stream with Mathematics</li>
-                        <li>Percentage: 88.2</li>
+                 <div class="relative group">
+                    <div class="absolute -left-[41px] md:-left-[57px] top-1 w-5 h-5 rounded-full border-2 border-accent bg-[#0a192f] group-hover:bg-accent transition-colors"></div>
+                    <h3 class="text-xl font-bold text-gray-100">Subject Matter Expert <span class="text-accent">@ Chegg India</span></h3>
+                    <p class="font-mono text-sm mb-4">Remote</p>
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex gap-3"><i class="fas fa-caret-right text-accent mt-1"></i> <span>Provided detailed, step-by-step solutions for complex Mathematics and Computer Science problems.</span></li>
                     </ul>
                 </div>
 
@@ -319,251 +206,190 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content max-w-5xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-8">
-
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="project-img w-full h-48 bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center text-white text-5xl">🧠</div>
-                    <div class="project-content p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">Pneumonia Classification</h3>
-                        <p class="text-gray-700 mb-4">
-                            Developed a CNN-based classifier using chest X-ray images to detect pneumonia. Compared performance with MLP and evaluated using multiple metrics.
-                        </p>
-                        <div class="project-links flex gap-4">
-                            <a href="https://github.com/Avirup221/Pneumonia_Classification" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200">GitHub <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="project-img w-full h-48 bg-gradient-to-r from-green-500 to-blue-500 flex items-center justify-center text-white text-5xl">📈</div>
-                    <div class="project-content p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">CPI Index Forecasting</h3>
-                        <p class="text-gray-700 mb-4">
-                            Applied regression techniques including Ridge, Lasso, ElasticNet, and Gradient Descent to predict the Consumer Price Index (CPI) using real economic data.
-                        </p>
-                        <div class="project-links flex gap-4">
-                            <a href="https://github.com/Avirup221/General-Index-Prediction" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200">GitHub <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="project-img w-full h-48 bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white text-5xl">📚</div>
-                    <div class="project-content p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">Touchless Interaction</h3>
-                        <p class="text-gray-700 mb-4">
-                            Developed a touchless volume control application, a virtual calculator, and a virtual canvas integrated with AI.
-                        </p>
-                        <div class="project-links flex gap-4">
-                            <a href="https://github.com/Avirup221/Touchless-Interaction" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200">GitHub <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                    <div class="project-img w-full h-48 bg-gradient-to-r from-orange-500 to-red-500 flex items-center justify-center text-white text-5xl">🎙️</div>
-                    <div class="project-content p-6">
-                        <h3 class="text-xl font-bold mb-2 text-gray-800">Speech Emotion Recognition</h3>
-                        <p class="text-gray-700 mb-4">
-                            Trained MLP and CNN models on RAVDESS & SAVEE datasets to classify human emotions from voice. Performed augmentation and cross-experiment comparison.
-                        </p>
-                        <div class="project-links flex gap-4">
-                            <a href="https://github.com/Avirup221/Speech-Emotion-Recognition" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-semibold transition-colors duration-200">GitHub <i class="fas fa-external-link-alt ml-1 text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
+    <section id="projects" class="py-24 px-6">
+        <div class="max-w-5xl mx-auto">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-2xl font-mono text-accent">03.</span>
+                <h2 class="text-3xl font-bold text-gray-100 font-display">Some Things I've Built</h2>
+                <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- Experience Section (New Timeline Format) -->
-    <section id="experience" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content max-w-5xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Experience</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-                <!-- Experience Item 1 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <span class="block text-indigo-600 text-sm font-semibold mb-2">June 2024 – August 2025</span>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">AI Research Intern</h3>
-                    <p class="text-lg text-gray-700 mb-2"><strong>FLAME University, Pune</strong></p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2 text-base">
-                        <li>Developed a computer vision system for real-time Sun Salutation pose classification using CNNs</li>
-                        <li>Preprocessed yoga pose dataset and trained deep learning models using PyTorch</li>
-                        <li>Improved accuracy through augmentation and fine-tuning, enabling personalized yoga feedback</li>
-                    </ul>
+            <div class="relative grid md:grid-cols-12 gap-4 mb-24 items-center">
+                <div class="md:col-span-7 relative h-[350px] bg-slate-800 rounded overflow-hidden border border-gray-700 group hover:border-accent/50 transition-colors">
+                    <div class="absolute inset-0 bg-gray-900/40 group-hover:bg-transparent transition-all duration-300"></div>
+                    <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-800 to-[#112240]">
+                        <i class="fas fa-robot text-8xl text-accent/20"></i>
+                    </div>
                 </div>
 
-                <!-- Experience Item 2 -->
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <span class="block text-indigo-600 text-sm font-semibold mb-2">June 2025 – August 2025</span>
-                    <h3 class="text-2xl font-bold mb-2 text-gray-800">Subject Matter Expert – Mathematics</h3>
-                    <p class="text-lg text-gray-700 mb-2"><strong>Chegg India</strong></p>
-                    <ul class="list-disc list-inside text-gray-600 mt-2 text-base">
-                        <li>Provided expert solutions for complex mathematics problems across various topics</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="min-h-screen flex items-center justify-center py-20 px-4">
-        <div class="container mx-auto section-content max-w-4xl">
-            <h2 class="text-4xl font-bold text-center mb-8 text-gray-800">Contact Me</h2>
-            <div class="contact-form max-w-2xl mx-auto">
-                <form id="contactForm" class="grid grid-cols-1 gap-6">
-                    <div class="form-group">
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                        <input type="text" id="name" name="name" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors duration-200">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors duration-200">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject" class="block text-gray-700 font-semibold mb-2">Subject</label>
-                        <input type="text" id="subject" name="subject" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors duration-200">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                        <textarea id="message" name="message" required class="w-full p-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition-colors duration-200 min-h-[120px] resize-y"></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </div>
-                </form>
-                <!-- Custom Message Display for Form Submission -->
-                <div id="formMessage" class="mt-6 p-4 bg-green-100 text-green-800 rounded-lg hidden" role="alert">
-                    Thank you for your message! I will get back to you soon.
-                </div>
-
-                <div class="text-center mt-8 text-gray-700">
-                    <p class="mb-2"><strong>Email:</strong> avirupdas221@gmail.com</p>
-                    <p class="mb-2"><strong>Phone:</strong> +91 9641420946</p>
-                    <p class="mb-2"><strong>Location:</strong> Kolkata, India</p>
+                <div class="md:col-span-5 md:text-right md:absolute md:right-0 md:w-1/2 z-10 p-4 md:p-0 bg-[#0a192f]/90 md:bg-transparent rounded">
+                    <p class="text-accent font-mono text-sm my-2">Featured Project</p>
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4 hover:text-accent transition-colors">Multi-Agent Smart Shopping</h3>
                     
-                    <!-- Social Media Links in Contact Section -->
-                    <div class="social-links flex justify-center gap-6 mt-6">
-                        <a href="https://linkedin.com/in/avirup-das-346266236/" target="_blank" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 linkedin" title="Connect on LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/Avirup221" target="_blank" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 github" title="View GitHub Profile">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="mailto:avirupdas221@gmail.com" class="social-link flex items-center justify-center w-12 h-12 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30 text-gray-800 text-xl transition-all duration-300 email" title="Send Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
+                    <div class="glass-card p-6 rounded shadow-xl text-sm leading-relaxed text-gray-300 mb-4 text-left md:text-right">
+                        An Agentic RAG system built with <span class="text-accent">LangGraph</span>. It uses multiple AI agents to understand user shopping queries, fetch real-time data from <span class="text-accent">Google Shopping (SerpAPI)</span>, and provide budget-aware recommendations with deduplication.
+                    </div>
+
+                    <ul class="flex flex-wrap md:justify-end gap-x-4 gap-y-2 font-mono text-xs text-gray-400 mb-6">
+                        <li>LangGraph</li>
+                        <li>Groq LLM</li>
+                        <li>SerpAPI</li>
+                        <li>Agentic RAG</li>
+                    </ul>
+
+                    <div class="flex md:justify-end gap-4 text-gray-300">
+                        <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github text-xl"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fas fa-external-link-alt text-xl"></i></a>
                     </div>
                 </div>
+            </div>
+
+            <div class="relative grid md:grid-cols-12 gap-4 mb-24 items-center">
+                <div class="md:col-span-5 z-10 p-4 md:p-0 bg-[#0a192f]/90 md:bg-transparent rounded order-2 md:order-1">
+                    <p class="text-accent font-mono text-sm my-2">Featured Project</p>
+                    <h3 class="text-2xl font-bold text-gray-100 mb-4 hover:text-accent transition-colors">NewsSense AI</h3>
+                    
+                    <div class="glass-card p-6 rounded shadow-xl text-sm leading-relaxed text-gray-300 mb-4">
+                        An autonomous news summarizer and fact-checker. Implements a <span class="text-accent">Planner Agent</span> that intelligently decides when to fetch Wikipedia data vs NewsAPI, summarizes content, and performs sentiment analysis automatically.
+                    </div>
+
+                    <ul class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-gray-400 mb-6">
+                        <li>LangChain</li>
+                        <li>Streamlit</li>
+                        <li>Wikipedia API</li>
+                        <li>NLP</li>
+                    </ul>
+
+                    <div class="flex gap-4 text-gray-300">
+                        <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github text-xl"></i></a>
+                        <a href="#" class="hover:text-accent"><i class="fas fa-external-link-alt text-xl"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 relative h-[350px] bg-slate-800 rounded overflow-hidden border border-gray-700 group hover:border-accent/50 transition-colors order-1 md:order-2 md:-ml-8">
+                    <div class="absolute inset-0 bg-gray-900/40 group-hover:bg-transparent transition-all duration-300"></div>
+                     <div class="w-full h-full flex items-center justify-center bg-gradient-to-bl from-gray-800 to-[#112240]">
+                        <i class="fas fa-newspaper text-8xl text-accent/20"></i>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-bold text-center text-gray-100 mb-10 font-display">Other Note-worthy Projects</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-accent text-3xl"></i>
+                        <div class="flex gap-4 text-gray-400">
+                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Sun Salutation Guide</h4>
+                    <p class="text-sm text-gray-400 mb-4 flex-grow">
+                        Real-time yoga pose guidance using MediaPipe and a custom 3D Quadtree CNN. 
+                    </p>
+                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
+                        <li>PyTorch</li>
+                        <li>3D CNN</li>
+                        <li>Vision</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-accent text-3xl"></i>
+                        <div class="flex gap-4 text-gray-400">
+                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Speech Emotion Recog.</h4>
+                    <p class="text-sm text-gray-400 mb-4 flex-grow">
+                        Deep learning system using MFCC features and CNNs to classify human emotions from audio files (RAVDESS/SAVEE).
+                    </p>
+                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
+                        <li>Librosa</li>
+                        <li>CNN</li>
+                        <li>Audio</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card p-6 rounded flex flex-col h-full group cursor-pointer">
+                    <div class="flex justify-between items-center mb-6">
+                        <i class="far fa-folder text-accent text-3xl"></i>
+                        <div class="flex gap-4 text-gray-400">
+                            <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-200 mb-2 group-hover:text-accent transition-colors">Graph RecSys</h4>
+                    <p class="text-sm text-gray-400 mb-4 flex-grow">
+                        Recommendation engine combining content-based filtering with Neo4j graph algorithms and cosine similarity.
+                    </p>
+                    <ul class="flex flex-wrap gap-3 font-mono text-xs text-gray-500">
+                        <li>Neo4j</li>
+                        <li>Sklearn</li>
+                        <li>Graphs</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Add active class to navigation based on scroll position (simplified for Tailwind, can be enhanced with JS for actual "active" states if needed)
-        // For this template, the visual "active" state is handled by nav a:hover::after, not dynamic JS classes.
-        // This function is still useful for tracking current section if you plan to highlight nav items dynamically.
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('nav a');
+    <section class="py-24 px-6 max-w-4xl mx-auto">
+         <div class="flex items-center gap-4 mb-12">
+            <h2 class="text-2xl font-bold text-gray-100 font-display">Education & Achievements</h2>
+            <div class="h-[1px] bg-gray-700 flex-grow max-w-xs"></div>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+                <h3 class="text-accent font-mono mb-4">Education</h3>
+                <div class="mb-6">
+                    <h4 class="text-white font-bold">M.Sc. Big Data Analytics</h4>
+                    <p class="text-sm text-gray-400">RKMVERI (2024-2026)</p>
+                    <p class="text-xs text-gray-500 mt-1">CGPA: 8.10</p>
+                </div>
+                <div class="mb-6">
+                    <h4 class="text-white font-bold">B.Sc. Mathematics</h4>
+                    <p class="text-sm text-gray-400">Ramakrishna Mission Residential College (2021-2024)</p>
+                    <p class="text-xs text-gray-500 mt-1">CGPA: 9.10</p>
+                </div>
+            </div>
             
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                // Adjust scroll threshold if needed for better active state detection
-                if (window.scrollY >= sectionTop - window.innerHeight / 3) {
-                    current = section.getAttribute('id');
-                }
-            });
+            <div>
+                <h3 class="text-accent font-mono mb-4">Achievements</h3>
+                <ul class="space-y-3 text-sm text-gray-400">
+                    <li class="flex gap-2"><i class="fas fa-trophy text-yellow-500 mt-1"></i> <span>Gold Medalist (1st Class, 4th Rank) in B.Sc. Mathematics.</span></li>
+                    <li class="flex gap-2"><i class="fas fa-star text-yellow-500 mt-1"></i> <span>Top 5% in NPTEL "Joy of Computing with Python".</span></li>
+                    <li class="flex gap-2"><i class="fas fa-award text-yellow-500 mt-1"></i> <span>Ray and Martin Scholarship (2019).</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-            navLinks.forEach(link => {
-                link.classList.remove('active'); // Remove any previous active state if it was dynamically added
-                if (link.getAttribute('href') === '#' + current) {
-                    // You can add a specific class here if you want a visual 'active' indicator
-                    // For example: link.classList.add('text-indigo-600');
-                }
-            });
-        });
+    <section id="contact" class="py-24 px-6 text-center">
+        <div class="max-w-2xl mx-auto">
+            <p class="text-accent font-mono mb-4">04. What's Next?</p>
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-100 mb-6 font-display">Get In Touch</h2>
+            <p class="text-lg text-gray-400 mb-12">
+                I am currently looking for full-time opportunities in AI and Data Science. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+            </p>
+            
+            <a href="mailto:avirupdas221@gmail.com" class="inline-block px-10 py-5 border border-accent text-accent rounded font-mono hover:bg-accent/10 transition-colors">
+                Say Hello
+            </a>
 
-        // Form submission handler with custom message display
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formMessage = document.getElementById('formMessage');
-            formMessage.classList.remove('hidden'); // Show the message
-            formMessage.classList.add('block'); // Ensure it takes up space
+            <div class="flex justify-center gap-8 mt-12 text-2xl text-gray-400">
+                <a href="https://github.com/avirup221" target="_blank" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/avirup-das-346266236/" target="_blank" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:avirupdas221@gmail.com" class="hover:text-accent hover:-translate-y-1 transition-all"><i class="fas fa-envelope"></i></a>
+            </div>
+            
+            <footer class="mt-20 text-xs font-mono text-gray-500">
+                <p>Designed & Built by Avirup Das</p>
+            </footer>
+        </div>
+    </section>
 
-            // Optionally, hide the message after a few seconds
-            setTimeout(() => {
-                formMessage.classList.remove('block');
-                formMessage.classList.add('hidden');
-            }, 5000); // Message disappears after 5 seconds
-
-            this.reset(); // Clear the form fields
-        });
-
-        // Animate skill progress bars when they come into view
-        const observerOptions = {
-            threshold: 0.7 // Trigger when 70% of the element is visible
-        };
-
-        const skillObserver = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const progressBars = entry.target.querySelectorAll('.progress-fill');
-                    progressBars.forEach(bar => {
-                        const initialWidth = bar.dataset.initialWidth; // Get width from data attribute
-                        if (initialWidth) {
-                            bar.style.width = initialWidth; // Set the actual width to trigger transition
-                        }
-                    });
-                    // Stop observing once animated, if you only want it to animate once
-                    // observer.unobserve(entry.target); 
-                } else {
-                    // Optional: reset width if it leaves view, to re-animate on scroll back
-                    const progressBars = entry.target.querySelectorAll('.progress-fill');
-                    progressBars.forEach(bar => {
-                        bar.style.width = '0%'; 
-                    });
-                }
-            });
-        }, observerOptions);
-
-        // Set initial width to 0% and store target width in data attribute for animation
-        document.addEventListener('DOMContentLoaded', function() {
-            document.querySelectorAll('#skills .progress-fill').forEach(bar => {
-                // Ensure data-initial-width is correctly set in HTML, or read from inline style if not
-                if (!bar.dataset.initialWidth && bar.style.width) {
-                    bar.dataset.initialWidth = bar.style.width;
-                }
-                bar.style.width = '0%'; // Start from 0 for animation
-            });
-            const skillsSection = document.querySelector('#skills');
-            if (skillsSection) {
-                skillObserver.observe(skillsSection);
-            }
-        });
-    </script>
 </body>
 </html>

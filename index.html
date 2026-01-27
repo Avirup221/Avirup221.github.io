@@ -17,20 +17,10 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        glass: {
-                            100: 'rgba(255, 255, 255, 0.05)',
-                            200: 'rgba(255, 255, 255, 0.1)',
-                            300: 'rgba(255, 255, 255, 0.2)',
-                            border: 'rgba(255, 255, 255, 0.1)',
-                        },
-                        brand: {
-                            accent: '#6366f1', // Indigo 500
-                            glow: '#818cf8',    // Indigo 400
-                        }
+                        glass: { border: 'rgba(255, 255, 255, 0.1)' },
+                        brand: { accent: '#6366f1', glow: '#818cf8' }
                     },
                     animation: {
                         'blob': 'blob 7s infinite',
@@ -54,30 +44,27 @@
     </script>
 
     <style>
-        /* --- CHANGED: Deep Ash Background --- */
+        /* --- CHANGED: LIGHTER ASH BACKGROUND --- */
         body {
-            background-color: #17171e; /* Deep Ash / Charcoal */
+            background-color: #22222b; /* This is the new Lighter Ash color */
             color: #ffffff;
             overflow-x: hidden;
         }
 
-        /* The Glass Effect Class */
         .glass-card {
-            background: rgba(30, 30, 40, 0.6); /* Slightly lighter base for contrast */
+            background: rgba(40, 40, 50, 0.5); /* Slightly lighter card to match */
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
         }
 
-        /* --- CHANGED: Nav to match Ash --- */
         .glass-nav {
-            background: rgba(23, 23, 30, 0.8);
+            background: rgba(34, 34, 43, 0.8); /* Matches new body color */
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Text Gradients (Kept exactly the same) */
         .text-gradient {
             background: linear-gradient(to right, #818cf8, #c084fc, #38bdf8);
             -webkit-background-clip: text;
@@ -85,7 +72,6 @@
             background-clip: text;
         }
 
-        /* Reveal Animation Classes */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -121,6 +107,51 @@
         </div>
     </nav>
 
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative px-6">
+        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
+            
+            <div class="order-2 md:order-1 space-y-6">
+                <div class="inline-block px-3 py-1 rounded-full glass-card text-brand-glow text-xs font-semibold tracking-wide uppercase mb-2">
+                    Available for AI Roles
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+                    Building <br>
+                    <span class="text-gradient">Agentic Intelligence</span>
+                </h1>
+                <p class="text-lg text-gray-400 max-w-lg leading-relaxed">
+                    I am <strong class="text-white">Avirup Das</strong>, a researcher and engineer specializing in 
+                    <span class="text-gray-200">Retrieval Augmented Generation (RAG)</span>, 
+                    <span class="text-gray-200">Deep Learning</span>, and 
+                    <span class="text-gray-200">Computer Vision</span>.
+                </p>
+                
+                <div class="flex flex-wrap gap-4 pt-4">
+                    <a href="#featured" class="px-8 py-3 bg-brand-accent hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-lg shadow-indigo-500/25">
+                        View Projects
+                    </a>
+                    <a href="AvirupResume.pdf" target="_blank" class="px-8 py-3 glass-card hover:bg-white/5 text-white rounded-lg font-medium transition-all">
+                        Resume <i class="fas fa-download ml-2 text-sm"></i>
+                    </a>
+                </div>
+
+                <div class="flex items-center gap-6 pt-8 text-gray-500">
+                    <a href="https://github.com/Avirup221" class="hover:text-white transition-colors"><i class="fab fa-github text-2xl"></i></a>
+                    <a href="https://linkedin.com/in/avirup-das-346266236/" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
+                    <a href="mailto:avirupdas221@gmail.com" class="hover:text-white transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 flex justify-center relative animate-float">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0 glass-card rounded-3xl transform rotate-6 z-0"></div>
+                    <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 z-10 bg-gray-900">
+                        <img src="my pic.jpg" alt="Avirup Das" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
     <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative px-6">
         <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
             

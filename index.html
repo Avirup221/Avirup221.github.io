@@ -108,56 +108,98 @@
     </nav>
 
 
-    <section id="home" class="min-h-screen flex items-center justify-center pt-20 relative px-6">
-        <div class="container mx-auto grid md:grid-cols-2 gap-12 items-center">
-            
-            <div class="order-2 md:order-1 space-y-6">
-                <div class="inline-block px-3 py-1 rounded-full glass-card text-brand-glow text-xs font-semibold tracking-wide uppercase mb-2">
-                    Available for AI Roles
-                </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-                    Building <br>
-                    <span class="text-gradient">Agentic Intelligence</span>
-                </h1>
-                <p class="text-lg text-gray-400 max-w-lg leading-relaxed">
-                    I am <strong class="text-white">Avirup Das</strong>, a researcher and engineer specializing in 
-                    <span class="text-gray-200">Retrieval Augmented Generation (RAG)</span>, 
-                    <span class="text-gray-200">Deep Learning</span>, and 
-                    <span class="text-gray-200">Computer Vision</span>.
-                </p>
-                
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#featured" class="px-8 py-3 bg-brand-accent hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-lg shadow-indigo-500/25">
-                        View Projects
-                    </a>
-                    <a href="AvirupResume.pdf" target="_blank" class="px-8 py-3 glass-card hover:bg-white/5 text-white rounded-lg font-medium transition-all">
-                        Resume <i class="fas fa-download ml-2 text-sm"></i>
-                    </a>
-                </div>
+<section
+  id="home"
+  className="min-h-screen flex items-center justify-center pt-20 relative px-6"
+>
+  <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center">
 
-                <div class="flex items-center gap-6 pt-8 text-gray-500">
-                    <a href="https://github.com/Avirup221" class="hover:text-white transition-colors"><i class="fab fa-github text-2xl"></i></a>
-                    <a href="https://linkedin.com/in/avirup-das-346266236/" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-2xl"></i></a>
-                    <a href="mailto:avirupdas221@gmail.com" class="hover:text-white transition-colors"><i class="fas fa-envelope text-2xl"></i></a>
-                </div>
-            </div>
+    {/* LEFT SIDE */}
+    <div className="order-2 md:order-1 space-y-6">
 
-            <div class="order-1 md:order-2 flex justify-center relative animate-float">
-                <div class="relative w-72 h-72 md:w-96 md:h-96">
-                    <div class="absolute inset-0 glass-card rounded-3xl transform rotate-6 z-0"></div>
-                    <div class="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 z-10 bg-gray-900">
-                        <img src="my pic.jpg" alt="Avirup Das" class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
-                    </div>
-                    <div class="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl z-20 border border-brand-accent/20">
-                        <div class="text-xs text-gray-400 uppercase tracking-wider">Education</div>
-                        <div class="font-bold text-white">M.Sc. Big Data Analytics</div>
-                        <div class="text-brand-glow text-xs">RKMVERI</div>
-                    </div>
-                </div>
-            </div>
+      <div className="inline-block px-3 py-1 rounded-full glass-card text-brand-glow text-xs font-semibold tracking-wide uppercase mb-2">
+        Available for AI Roles
+      </div>
 
+      <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
+        Building <br />
+        <span className="text-gradient">Agentic Intelligence</span>
+      </h1>
+
+      <p className="text-lg text-gray-400 max-w-lg leading-relaxed">
+        I am <strong className="text-white">Avirup Das</strong>, an aspiring Data Scientist and AI Engineer with a strong foundation in{" "}
+        <span className="text-gray-200">Machine Learning</span>,{" "}
+        <span className="text-gray-200">Deep Learning</span>,{" "}
+        <span className="text-gray-200">Computer Vision</span>, and{" "}
+        <span className="text-gray-200">Retrieval-Augmented Generation (RAG)</span>.
+        <br /><br />
+        I hold an M.Sc. in Big Data Analytics and have hands-on experience building end-to-end AI systems — from CNN-based medical imaging and speech emotion recognition to graph-driven recommendation engines and agentic RAG pipelines.
+      </p>
+
+      <div className="flex flex-wrap gap-4 pt-4">
+        <a
+          href="#featured"
+          className="px-8 py-3 bg-brand-accent hover:bg-indigo-600 text-white rounded-lg font-medium transition-all shadow-lg shadow-indigo-500/25"
+        >
+          View Projects
+        </a>
+
+        <a
+          href="/AvirupResume.pdf"
+          target="_blank"
+          className="px-8 py-3 glass-card hover:bg-white/5 text-white rounded-lg font-medium transition-all"
+        >
+          Resume <i className="fas fa-download ml-2 text-sm"></i>
+        </a>
+      </div>
+
+      <div className="flex items-center gap-6 pt-8 text-gray-500">
+        <a href="https://github.com/Avirup221" className="hover:text-white transition-colors">
+          <i className="fab fa-github text-2xl"></i>
+        </a>
+
+        <a href="https://linkedin.com/in/avirup-das-346266236/" className="hover:text-white transition-colors">
+          <i className="fab fa-linkedin text-2xl"></i>
+        </a>
+
+        <a href="mailto:avirupdas221@gmail.com" className="hover:text-white transition-colors">
+          <i className="fas fa-envelope text-2xl"></i>
+        </a>
+      </div>
+    </div>
+
+    {/* RIGHT SIDE */}
+    <div className="order-1 md:order-2 flex justify-center relative animate-float">
+      <div className="relative w-72 h-72 md:w-96 md:h-96">
+
+        <div className="absolute inset-0 glass-card rounded-3xl transform rotate-6 z-0"></div>
+
+        <div className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 z-10 bg-gray-900">
+          <img
+            src="/my pic.jpg"
+            alt="Avirup Das"
+            className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+          />
         </div>
-    </section>
+
+        <div className="absolute -bottom-6 -left-6 glass-card p-4 rounded-xl z-20 border border-brand-accent/20">
+          <div className="text-xs text-gray-400 uppercase tracking-wider">
+            Education
+          </div>
+          <div className="font-bold text-white">
+            M.Sc. Big Data Analytics
+          </div>
+          <div className="text-brand-glow text-xs">
+            RKMVERI
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
     <section id="about" class="py-20 px-6">
         <div class="container mx-auto">

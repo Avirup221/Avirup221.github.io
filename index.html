@@ -327,10 +327,11 @@
         </div>
     </section>
     
-    <section id="featured" class="py-20 px-6 relative">
+<section id="projects" class="py-20 px-6 relative">
         <div class="container mx-auto max-w-6xl">
-            <div class="flex items-center gap-4 mb-16 reveal">
-                <h2 class="text-3xl md:text-5xl font-bold text-white">Selected Work</h2>
+            
+            <div class="flex items-center gap-4 mb-20 reveal">
+                <h2 class="text-3xl md:text-5xl font-bold text-white">Projects</h2>
                 <div class="h-px bg-gradient-to-r from-brand-accent to-transparent flex-grow"></div>
             </div>
 
@@ -338,22 +339,22 @@
                 <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2">
                     <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
                     <div class="w-full h-full bg-[#1e293b] flex items-center justify-center">
-                        <i class="fas fa-network-wired text-8xl text-indigo-500/20 group-hover:text-indigo-500/40 transition-all"></i>
+                        <i class="fas fa-newspaper text-8xl text-blue-500/20 group-hover:text-blue-500/40 transition-all"></i>
                     </div>
                 </div>
                 
                 <div class="md:col-span-5 md:-ml-12 z-20 md:text-right relative">
-                    <div class="text-brand-glow font-mono text-sm mb-2">Agentic Workflow</div>
+                    <div class="text-brand-glow font-mono text-sm mb-2">Agentic RAG System</div>
                     <h3 class="text-3xl font-bold text-white mb-4">NewsSense AI</h3>
                     
-                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/80">
-                        An autonomous news analysis system. I designed a <span class="text-white font-semibold">Planner Agent</span> that intelligently delegates tasks: fetching live data via APIs, summarizing via LLMs, and fact-checking against Wikipedia. It solves the hallucination problem in standard RAG.
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/90">
+                        An autonomous news analysis agent. I engineered a <span class="text-white font-semibold">Planner Agent</span> that dynamically delegates tasks: fetching live data via APIs, summarizing content using LLMs, and fact-checking against Wikipedia to reduce hallucinations.
                     </div>
 
                     <div class="flex flex-wrap justify-end gap-3 text-xs font-mono text-gray-400 mb-6">
                         <span class="bg-white/5 px-2 py-1 rounded">LangChain</span>
                         <span class="bg-white/5 px-2 py-1 rounded">Python</span>
-                        <span class="bg-white/5 px-2 py-1 rounded">RAG</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Wikipedia API</span>
                     </div>
 
                     <div class="flex justify-end gap-4">
@@ -363,13 +364,12 @@
             </div>
 
             <div class="group relative grid md:grid-cols-12 gap-6 items-center mb-32 reveal">
-                
                 <div class="md:col-span-5 md:-mr-12 z-20 md:text-left order-2 md:order-1 relative">
-                    <div class="text-brand-glow font-mono text-sm mb-2">Multi-Agent System</div>
+                    <div class="text-brand-glow font-mono text-sm mb-2">Multi-Agent Recommendation</div>
                     <h3 class="text-3xl font-bold text-white mb-4">Smart Shopping Intelligence</h3>
                     
-                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/80">
-                        A budget-aware recommendation engine built on <span class="text-white font-semibold">LangGraph</span>. It orchestrates multiple agents to understand user intent, search real-time prices via <span class="text-white font-semibold">SerpAPI</span>, and rank products based on semantic relevance and constraints.
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/90">
+                        A budget-aware shopping assistant built on <span class="text-white font-semibold">LangGraph</span>. It orchestrates multiple agents to understand user intent, search real-time prices via <span class="text-white font-semibold">SerpAPI</span>, and rank products based on semantic relevance and constraints.
                     </div>
 
                     <div class="flex flex-wrap justify-start gap-3 text-xs font-mono text-gray-400 mb-6">
@@ -391,67 +391,92 @@
                 </div>
             </div>
 
-        </div>
-    </section>
-
-    <section id="research" class="py-20 px-6 bg-black/10">
-        <div class="container mx-auto max-w-6xl">
-            <h2 class="text-3xl font-bold text-white mb-12 text-center reveal">Other Noteworthy Projects</h2>
-            
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="group relative grid md:grid-cols-12 gap-6 items-center mb-32 reveal">
+                <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    <div class="w-full h-full bg-[#1e293b] flex items-center justify-center">
+                        <i class="fas fa-person-praying text-8xl text-orange-500/20 group-hover:text-orange-500/40 transition-all"></i>
+                    </div>
+                </div>
                 
-                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal">
-                    <div class="flex justify-between items-start mb-6">
-                        <i class="fas fa-child text-4xl text-brand-accent"></i>
-                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
+                <div class="md:col-span-5 md:-ml-12 z-20 md:text-right relative">
+                    <div class="text-brand-glow font-mono text-sm mb-2">Computer Vision Research</div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Sun Salutation Guide</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/90">
+                        A real-time yoga pose correction system. I developed a custom <span class="text-white font-semibold">3D Quadtree CNN</span> to capture complex spatio-temporal features from video feeds, integrated with MediaPipe for precise skeletal tracking.
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Sun Salutation Guide</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Research Intern Project. Real-time yoga pose correction using MediaPipe and a custom 3D Quadtree CNN to capture spatio-temporal features.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
-                        <span>PyTorch</span>
-                        <span>3D CNN</span>
-                        <span>OpenCV</span>
+
+                    <div class="flex flex-wrap justify-end gap-3 text-xs font-mono text-gray-400 mb-6">
+                        <span class="bg-white/5 px-2 py-1 rounded">PyTorch</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">3D CNN</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">OpenCV</span>
+                    </div>
+
+                    <div class="flex justify-end gap-4">
+                        <a href="https://github.com/Avirup221" target="_blank" class="text-white hover:text-brand-accent transition-colors"><i class="fab fa-github text-xl"></i></a>
                     </div>
                 </div>
-
-                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal delay-100">
-                    <div class="flex justify-between items-start mb-6">
-                        <i class="fas fa-wave-square text-4xl text-brand-accent"></i>
-                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Speech Emotion Rec.</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Deep Learning model classifying emotions from voice audio. Used extensive MFCC feature extraction and augmentation on the RAVDESS dataset.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
-                        <span>Librosa</span>
-                        <span>CNN</span>
-                        <span>Audio</span>
-                    </div>
-                </div>
-
-                <div class="glass-card p-8 rounded-xl hover:-translate-y-2 transition-transform duration-300 reveal delay-200">
-                    <div class="flex justify-between items-start mb-6">
-                        <i class="fas fa-project-diagram text-4xl text-brand-accent"></i>
-                        <a href="https://github.com/Avirup221" class="text-gray-400 hover:text-white"><i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Graph RecSys</h3>
-                    <p class="text-gray-400 text-sm mb-4 leading-relaxed">
-                        Hybrid recommendation engine using Neo4j graph database. Combines content-based filtering with collaborative user-item interaction graphs.
-                    </p>
-                    <div class="flex flex-wrap gap-2 text-xs font-mono text-brand-glow mt-auto">
-                        <span>Neo4j</span>
-                        <span>Cypher</span>
-                        <span>Scikit-Learn</span>
-                    </div>
-                </div>
-
             </div>
+
+            <div class="group relative grid md:grid-cols-12 gap-6 items-center mb-32 reveal">
+                <div class="md:col-span-5 md:-mr-12 z-20 md:text-left order-2 md:order-1 relative">
+                    <div class="text-brand-glow font-mono text-sm mb-2">Audio Deep Learning</div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Speech Emotion Recognition</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/90">
+                        A deep learning model capable of classifying human emotions from raw voice audio. I implemented extensive <span class="text-white font-semibold">MFCC feature extraction</span> and data augmentation techniques on the RAVDESS dataset to achieve robust accuracy.
+                    </div>
+
+                    <div class="flex flex-wrap justify-start gap-3 text-xs font-mono text-gray-400 mb-6">
+                        <span class="bg-white/5 px-2 py-1 rounded">Librosa</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">CNN/ANN</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Audio Processing</span>
+                    </div>
+
+                    <div class="flex justify-start gap-4">
+                        <a href="https://github.com/Avirup221" target="_blank" class="text-white hover:text-brand-accent transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2 order-1 md:order-2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    <div class="w-full h-full bg-[#1e293b] flex items-center justify-center">
+                        <i class="fas fa-wave-square text-8xl text-red-500/20 group-hover:text-red-500/40 transition-all"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="group relative grid md:grid-cols-12 gap-6 items-center reveal">
+                <div class="md:col-span-7 relative h-[400px] rounded-xl overflow-hidden glass-card border-brand-accent/20 z-10 transition-transform duration-500 group-hover:-translate-y-2">
+                    <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"></div>
+                    <div class="w-full h-full bg-[#1e293b] flex items-center justify-center">
+                        <i class="fas fa-circle-nodes text-8xl text-emerald-500/20 group-hover:text-emerald-500/40 transition-all"></i>
+                    </div>
+                </div>
+                
+                <div class="md:col-span-5 md:-ml-12 z-20 md:text-right relative">
+                    <div class="text-brand-glow font-mono text-sm mb-2">Graph Database & ML</div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Graph-Based RecSys</h3>
+                    
+                    <div class="glass-card p-6 rounded-lg text-gray-300 text-sm leading-relaxed shadow-xl mb-6 backdrop-blur-xl bg-[#232732]/90">
+                        A hybrid recommendation engine powered by <span class="text-white font-semibold">Neo4j</span>. It combines content-based filtering with a collaborative knowledge graph, using Cypher queries and Cosine Similarity to model complex user-item interactions.
+                    </div>
+
+                    <div class="flex flex-wrap justify-end gap-3 text-xs font-mono text-gray-400 mb-6">
+                        <span class="bg-white/5 px-2 py-1 rounded">Neo4j</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Cypher</span>
+                        <span class="bg-white/5 px-2 py-1 rounded">Scikit-Learn</span>
+                    </div>
+
+                    <div class="flex justify-end gap-4">
+                        <a href="https://github.com/Avirup221" target="_blank" class="text-white hover:text-brand-accent transition-colors"><i class="fab fa-github text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
-
     <section id="experience" class="py-20 px-6">
         <div class="container mx-auto max-w-4xl">
             <h2 class="text-3xl font-bold text-white mb-12 reveal"><span class="text-brand-accent">03.</span> Experience</h2>
